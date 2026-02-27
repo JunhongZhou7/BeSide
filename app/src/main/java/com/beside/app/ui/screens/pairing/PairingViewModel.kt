@@ -34,6 +34,11 @@ class PairingViewModel : ViewModel() {
     }
 
     fun pairWithCode(code: String) {
+        if (code.length != 6) {
+            _uiState.update { it.copy(message = "邀请码需要6位数字哦~ 🔢", isError = true) }
+            return
+        }
+        _uiState.update { it.copy(message = "正在查找ta的邀请码呢~ ⏳", isError = false) }
         viewModelScope.launch {
             try {
                 val success = repository.pairWithCode(code)
@@ -43,7 +48,7 @@ class PairingViewModel : ViewModel() {
                     _uiState.update { it.copy(message = "找不到这个邀请码呢，再确认一下嘛~ 🤔", isError = true) }
                 }
             } catch (e: Exception) {
-                _uiState.update { it.copy(message = "配对失败了呢~ 😢", isError = true) }
+                _uiState.update { it.copy(message = "配对失败了呢，网络可能不太好~ 再试一次嘛 😢\n${e.localizedMessage ?: ""}", isError = true) }
             }
         }
     }
