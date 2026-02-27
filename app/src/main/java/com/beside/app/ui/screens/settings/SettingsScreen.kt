@@ -8,10 +8,14 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.beside.app.R
 import com.beside.app.data.model.PrivacyLevel
+import com.beside.app.util.LanguageHelper
 
 @Composable
 fun SettingsScreen(viewModel: SettingsViewModel = viewModel()) {
@@ -119,6 +123,11 @@ fun SettingsScreen(viewModel: SettingsViewModel = viewModel()) {
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        // ===== 语言设置 =====
+        LanguageSection()
+
+        Spacer(modifier = Modifier.height(20.dp))
+
         // 通知权限引导
         Card(
             modifier = Modifier.fillMaxWidth(),
@@ -146,6 +155,54 @@ fun SettingsScreen(viewModel: SettingsViewModel = viewModel()) {
         }
 
         Spacer(modifier = Modifier.height(32.dp))
+    }
+}
+
+@Composable
+fun LanguageSection() {
+    val context = LocalContext.current
+    var currentLang by remember { mutableStateOf(LanguageHelper.getCurrentLanguage(context)) }
+
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp)
+    ) {
+        Column(modifier = Modifier.padding(20.dp)) {
+            Text(
+                text = stringResource(R.string.settings_language_title),
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold
+            )
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.settings_language_desc),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(modifier = Modifier.height(12.dp))
+
+            LanguageHelper.supportedLanguages.forEach { lang ->
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    RadioButton(
+                        selected = currentLang == lang.code,
+                        onClick = {
+                            currentLang = lang.code
+                            LanguageHelper.setLanguage(context, lang.code)
+                        }
+                    )
+                    Text(
+                        text = lang.displayName,
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.padding(start = 8.dp)
+                    )
+                }
+            }
+        }
     }
 }
 

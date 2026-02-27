@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">そばにいるよ</string>
+
+    <string name="nav_home">ホーム</string>
+    <string name="nav_timeline">あの人の一日</string>
+    <string name="nav_pairing">ペアリング</string>
+    <string name="nav_settings">設定</string>
+    <string name="top_bar_title">そばにいるよ 💕</string>
+
+    <string name="auth_logo_text">そばにいるよ</string>
+    <string name="auth_subtitle">BeSide</string>
+    <string name="auth_slogan">どんなに離れていても、心はそばにいるよ~ 🌸</string>
+    <string name="auth_login">ログイン</string>
+    <string name="auth_register">新規登録</string>
+    <string name="auth_nickname_hint">ニックネーム~</string>
+    <string name="auth_email_hint">メールアドレス</string>
+    <string name="auth_password_hint">パスワード</string>
+    <string name="auth_login_button">ログイン 💕</string>
+    <string name="auth_register_button">登録する ✨</string>
+    <string name="auth_default_nickname">かわいい子</string>
+    <string name="auth_error_no_user">アカウントが見つからないよ、登録する？ 🤔</string>
+    <string name="auth_error_wrong_password">パスワードが違うよ、もう一度~ 🔑</string>
+    <string name="auth_error_bad_email">メールアドレスの形式が違うみたい~ 📧</string>
+    <string name="auth_error_login_failed">ログイン失敗：%s 😢</string>
+    <string name="auth_error_email_taken">このメールはもう登録されてるよ、ログインしてみて？ 💌</string>
+    <string name="auth_error_weak_password">パスワードが簡単すぎるよ、6文字以上にしてね~ 🔐</string>
+    <string name="auth_error_register_failed">登録失敗：%s 😢</string>
+
+    <string name="home_partner_time">あっちは今 %s だよ~</string>
+    <string name="home_last_online">最終オンライン：%s 🌸</string>
+    <string name="home_events_summary">今日 %d 件の更新があるよ~ 見てみて 👀</string>
+    <string name="home_no_partner_title">まだペアリングしてないよ~</string>
+    <string name="home_no_partner_desc">ペアリングページであの人を見つけよう 💌</string>
+    <string name="home_relative_just_now">たった今</string>
+    <string name="home_relative_minutes">%d 分前</string>
+    <string name="home_relative_hours">%d 時間前</string>
+    <string name="home_relative_days">%d 日前</string>
+
+    <string name="timeline_title">あの人の一日 📖</string>
+    <string name="timeline_empty_title">今日はまだ更新がないよ~</string>
+    <string name="timeline_empty_desc">まだ寝てるかも、ゆっくり休ませてあげよう 😴</string>
+
+    <string name="pairing_title">あの人を見つけよう 💝</string>
+    <string name="pairing_subtitle">ペアリング方法を選んでね~</string>
+    <string name="pairing_code_title">📮 招待コード</string>
+    <string name="pairing_code_yours">あなたの招待コード~</string>
+    <string name="pairing_code_share">このコードをあの人に教えてね 💌</string>
+    <string name="pairing_code_generate">招待コードを作る ✨</string>
+    <string name="pairing_code_enter_hint">あの人のコードがある？ここに入力してね~</string>
+    <string name="pairing_code_input_label">6桁のコードを入力</string>
+    <string name="pairing_code_bind">ペアリング 💕</string>
+    <string name="pairing_uid_title">🆔 ユーザーID</string>
+    <string name="pairing_uid_mine">あなたのID：%s</string>
+    <string name="pairing_uid_input_label">あの人のユーザーIDを入力</string>
+    <string name="pairing_uid_send">リクエストを送る 💌</string>
+    <string name="pairing_qr_title">📷 QRコード</string>
+    <string name="pairing_qr_desc">対面でスキャンしてすぐペアリング~ 🤳</string>
+    <string name="pairing_qr_mine">マイQRコード</string>
+    <string name="pairing_qr_scan">スキャン</string>
+    <string name="pairing_success">ペアリング成功！これからずっと一緒だよ 💕</string>
+    <string name="pairing_code_not_found">コードが見つからないよ、もう一度確認して？ 🤔</string>
+    <string name="pairing_code_invalid">コードは6桁だよ~ 🔢</string>
+    <string name="pairing_code_searching">コードを探してるよ~ ⏳</string>
+    <string name="pairing_code_gen_success">コード生成完了！あの人に教えてね 💌</string>
+    <string name="pairing_code_gen_fail">生成失敗、もう一度試してね~ 😢</string>
+    <string name="pairing_error_network">ペアリング失敗、ネットワークかも~ もう一度 😢\n%s</string>
+    <string name="pairing_uid_success">リクエスト送信完了~ あの人の返事を待ってね 💌</string>
+    <string name="pairing_uid_not_found">ユーザーが見つからないよ、IDは合ってる？ 🤔</string>
+    <string name="pairing_uid_fail">送信失敗~ 😢</string>
+    <string name="pairing_qr_wip">QRコード機能は開発中だよ~ 🔧</string>
+    <string name="pairing_scan_wip">スキャン機能は開発中だよ~ 🔧</string>
+
+    <string name="settings_title">設定 ⚙️</string>
+    <string name="settings_notif_privacy_title">🔔 通知プライバシー</string>
+    <string name="settings_notif_privacy_desc">通知をどこまで見せる？~</string>
+    <string name="settings_location_privacy_title">📍 位置プライバシー</string>
+    <string name="settings_location_privacy_desc">位置をどこまで見せる？~</string>
+    <string name="settings_privacy_app_only_notif">🟢 アプリ名のみ</string>
+    <string name="settings_privacy_summary_notif">🟡 簡単な要約</string>
+    <string name="settings_privacy_full_notif">🔴 全内容</string>
+    <string name="settings_privacy_city">🟢 市レベル</string>
+    <string name="settings_privacy_district">🟡 区レベル</string>
+    <string name="settings_privacy_exact">🔴 正確な位置</string>
+    <string name="settings_allowed_apps_title">📱 許可するアプリ</string>
+    <string name="settings_allowed_apps_desc">どのアプリの通知を見せる？~ 空なら全部だよ</string>
+    <string name="settings_notif_permission_title">⚡ 通知アクセス権限</string>
+    <string name="settings_notif_permission_desc">通知アクセスを有効にしてね 💕</string>
+    <string name="settings_notif_permission_button">権限を有効にする ✨</string>
+    <string name="settings_language_title">🌐 言語 / Language</string>
+    <string name="settings_language_desc">好きな言語を選んでね~</string>
+
+    <string name="notif_used_app">%sを使ったよ~ 📱</string>
+    <string name="notif_got_message">%sからメッセージが来たよ~ 💌</string>
+    <string name="location_channel_name">位置同期</string>
+    <string name="location_channel_desc">あの人にあなたの場所を教えてるよ~ 💕</string>
+    <string name="location_notif_title">そばにいるよ 💕</string>
+    <string name="location_notif_text">あなたの位置を守ってるよ~</string>
+
+    <string name="lang_zh">中文</string>
+    <string name="lang_en">English</string>
+    <string name="lang_fr">Français</string>
+    <string name="lang_ja">日本語</string>
+    <string name="lang_ko">한국어</string>
+</resources>

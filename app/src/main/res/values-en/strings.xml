@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">BeSide</string>
+
+    <string name="nav_home">Home</string>
+    <string name="nav_timeline">Their Day</string>
+    <string name="nav_pairing">Pair</string>
+    <string name="nav_settings">Settings</string>
+    <string name="top_bar_title">BeSide 💕</string>
+
+    <string name="auth_logo_text">BeSide</string>
+    <string name="auth_subtitle">BeSide</string>
+    <string name="auth_slogan">No matter the distance, our hearts are together~ 🌸</string>
+    <string name="auth_login">Login</string>
+    <string name="auth_register">Sign Up</string>
+    <string name="auth_nickname_hint">Your nickname~</string>
+    <string name="auth_email_hint">Email address</string>
+    <string name="auth_password_hint">Password</string>
+    <string name="auth_login_button">Login 💕</string>
+    <string name="auth_register_button">Sign Up ✨</string>
+    <string name="auth_default_nickname">Sweetie</string>
+    <string name="auth_error_no_user">Can\'t find this account, wanna sign up? 🤔</string>
+    <string name="auth_error_wrong_password">Wrong password, try again~ 🔑</string>
+    <string name="auth_error_bad_email">That email doesn\'t look right~ 📧</string>
+    <string name="auth_error_login_failed">Login failed: %s 😢</string>
+    <string name="auth_error_email_taken">This email is already registered, try logging in? 💌</string>
+    <string name="auth_error_weak_password">Password is too simple, at least 6 characters~ 🔐</string>
+    <string name="auth_error_register_failed">Registration failed: %s 😢</string>
+
+    <string name="home_partner_time">It\'s %s over there~</string>
+    <string name="home_last_online">Last online: %s 🌸</string>
+    <string name="home_events_summary">They have %d updates today~ go check it out 👀</string>
+    <string name="home_no_partner_title">Haven\'t paired with anyone yet~</string>
+    <string name="home_no_partner_desc">Go to the Pair page to find your special someone 💌</string>
+    <string name="home_relative_just_now">just now</string>
+    <string name="home_relative_minutes">%d min ago</string>
+    <string name="home_relative_hours">%d hours ago</string>
+    <string name="home_relative_days">%d days ago</string>
+
+    <string name="timeline_title">Their Day 📖</string>
+    <string name="timeline_empty_title">No updates from them today~</string>
+    <string name="timeline_empty_desc">Maybe they\'re still sleeping, let them rest a bit 😴</string>
+
+    <string name="pairing_title">Find Your Person 💝</string>
+    <string name="pairing_subtitle">Choose a way to pair up~</string>
+    <string name="pairing_code_title">📮 Invite Code</string>
+    <string name="pairing_code_yours">Your invite code is~</string>
+    <string name="pairing_code_share">Share this code with them 💌</string>
+    <string name="pairing_code_generate">Generate My Invite Code ✨</string>
+    <string name="pairing_code_enter_hint">Have their invite code? Enter it here~</string>
+    <string name="pairing_code_input_label">Enter 6-digit code</string>
+    <string name="pairing_code_bind">Pair Up 💕</string>
+    <string name="pairing_uid_title">🆔 User ID</string>
+    <string name="pairing_uid_mine">Your ID: %s</string>
+    <string name="pairing_uid_input_label">Enter their User ID</string>
+    <string name="pairing_uid_send">Send Pair Request 💌</string>
+    <string name="pairing_qr_title">📷 QR Code</string>
+    <string name="pairing_qr_desc">Scan face-to-face to pair instantly~ 🤳</string>
+    <string name="pairing_qr_mine">My QR Code</string>
+    <string name="pairing_qr_scan">Scan</string>
+    <string name="pairing_success">Paired! From now on, they\'re yours 💕</string>
+    <string name="pairing_code_not_found">Can\'t find this code, double check? 🤔</string>
+    <string name="pairing_code_invalid">Code must be 6 digits~ 🔢</string>
+    <string name="pairing_code_searching">Looking for that code~ ⏳</string>
+    <string name="pairing_code_gen_success">Code generated! Share it with them 💌</string>
+    <string name="pairing_code_gen_fail">Generation failed, try again~ 😢</string>
+    <string name="pairing_error_network">Pairing failed, network might be shaky~ try again 😢\n%s</string>
+    <string name="pairing_uid_success">Request sent~ waiting for them to accept 💌</string>
+    <string name="pairing_uid_not_found">Can\'t find this user, check the ID? 🤔</string>
+    <string name="pairing_uid_fail">Failed to send~ 😢</string>
+    <string name="pairing_qr_wip">QR code feature coming soon~ 🔧</string>
+    <string name="pairing_scan_wip">Scan feature coming soon~ 🔧</string>
+
+    <string name="settings_title">Settings ⚙️</string>
+    <string name="settings_notif_privacy_title">🔔 Notification Privacy</string>
+    <string name="settings_notif_privacy_desc">How much can they see from your notifications~</string>
+    <string name="settings_location_privacy_title">📍 Location Privacy</string>
+    <string name="settings_location_privacy_desc">How precisely can they see your location~</string>
+    <string name="settings_privacy_app_only_notif">🟢 App name only — \"They used WeChat~\"</string>
+    <string name="settings_privacy_summary_notif">🟡 Brief summary — \"Got a WeChat message~\"</string>
+    <string name="settings_privacy_full_notif">🔴 Full content — they can see everything</string>
+    <string name="settings_privacy_city">🟢 City level — \"They\'re in Shanghai~\"</string>
+    <string name="settings_privacy_district">🟡 District level — \"They\'re in Pudong~\"</string>
+    <string name="settings_privacy_exact">🔴 Exact location — they can see the full address</string>
+    <string name="settings_allowed_apps_title">📱 Allowed Apps</string>
+    <string name="settings_allowed_apps_desc">Choose which apps\' notifications they can see~ leave empty for all</string>
+    <string name="settings_notif_permission_title">⚡ Notification Access</string>
+    <string name="settings_notif_permission_desc">You need to enable notification access so they can see your updates~ go to system settings and turn it on for BeSide 💕</string>
+    <string name="settings_notif_permission_button">Enable Permission ✨</string>
+    <string name="settings_language_title">🌐 Language</string>
+    <string name="settings_language_desc">Choose your preferred language~</string>
+
+    <string name="notif_used_app">Used %s~ 📱</string>
+    <string name="notif_got_message">Got a message from %s~ 💌</string>
+    <string name="location_channel_name">Location Sync</string>
+    <string name="location_channel_desc">Letting them know where you are~ 💕</string>
+    <string name="location_notif_title">BeSide 💕</string>
+    <string name="location_notif_text">Keeping your location safe for them~</string>
+
+    <string name="lang_zh">中文</string>
+    <string name="lang_en">English</string>
+    <string name="lang_fr">Français</string>
+    <string name="lang_ja">日本語</string>
+    <string name="lang_ko">한국어</string>
+</resources>

@@ -68,5 +68,8 @@ dependencies {
     // DataStore
     implementation("androidx.datastore:datastore-preferences:1.0.0")
 
+    // AppCompat (for language switching)
+    implementation("androidx.appcompat:appcompat:1.6.1")
+
     debugImplementation("androidx.compose.ui:ui-tooling")
 }

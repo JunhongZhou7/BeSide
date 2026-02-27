@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">네 곁에</string>
+
+    <string name="nav_home">홈</string>
+    <string name="nav_timeline">그 사람의 하루</string>
+    <string name="nav_pairing">페어링</string>
+    <string name="nav_settings">설정</string>
+    <string name="top_bar_title">네 곁에 💕</string>
+
+    <string name="auth_logo_text">네 곁에</string>
+    <string name="auth_subtitle">BeSide</string>
+    <string name="auth_slogan">아무리 멀어도 마음은 함께야~ 🌸</string>
+    <string name="auth_login">로그인</string>
+    <string name="auth_register">회원가입</string>
+    <string name="auth_nickname_hint">닉네임~</string>
+    <string name="auth_email_hint">이메일 주소</string>
+    <string name="auth_password_hint">비밀번호</string>
+    <string name="auth_login_button">로그인 💕</string>
+    <string name="auth_register_button">가입하기 ✨</string>
+    <string name="auth_default_nickname">자기야</string>
+    <string name="auth_error_no_user">계정을 찾을 수 없어, 가입할래? 🤔</string>
+    <string name="auth_error_wrong_password">비밀번호가 틀렸어, 다시 해봐~ 🔑</string>
+    <string name="auth_error_bad_email">이메일 형식이 맞지 않아~ 📧</string>
+    <string name="auth_error_login_failed">로그인 실패: %s 😢</string>
+    <string name="auth_error_email_taken">이미 등록된 이메일이야, 로그인 해볼래? 💌</string>
+    <string name="auth_error_weak_password">비밀번호가 너무 간단해, 6자 이상으로~ 🔐</string>
+    <string name="auth_error_register_failed">가입 실패: %s 😢</string>
+
+    <string name="home_partner_time">거기는 지금 %s이야~</string>
+    <string name="home_last_online">마지막 접속: %s 🌸</string>
+    <string name="home_events_summary">오늘 %d개의 활동이 있어~ 확인해봐 👀</string>
+    <string name="home_no_partner_title">아직 페어링 안 했어~</string>
+    <string name="home_no_partner_desc">페어링 페이지에서 그 사람을 찾아봐 💌</string>
+    <string name="home_relative_just_now">방금</string>
+    <string name="home_relative_minutes">%d분 전</string>
+    <string name="home_relative_hours">%d시간 전</string>
+    <string name="home_relative_days">%d일 전</string>
+
+    <string name="timeline_title">그 사람의 하루 📖</string>
+    <string name="timeline_empty_title">오늘은 아직 활동이 없어~</string>
+    <string name="timeline_empty_desc">아직 자고 있나봐, 좀 더 쉬게 해줘 😴</string>
+
+    <string name="pairing_title">그 사람을 찾아봐 💝</string>
+    <string name="pairing_subtitle">페어링 방법을 선택해~</string>
+    <string name="pairing_code_title">📮 초대 코드</string>
+    <string name="pairing_code_yours">너의 초대 코드~</string>
+    <string name="pairing_code_share">이 코드를 그 사람에게 알려줘 💌</string>
+    <string name="pairing_code_generate">초대 코드 만들기 ✨</string>
+    <string name="pairing_code_enter_hint">그 사람의 코드가 있어? 여기에 입력해~</string>
+    <string name="pairing_code_input_label">6자리 코드 입력</string>
+    <string name="pairing_code_bind">페어링 💕</string>
+    <string name="pairing_uid_title">🆔 사용자 ID</string>
+    <string name="pairing_uid_mine">내 ID: %s</string>
+    <string name="pairing_uid_input_label">그 사람의 사용자 ID 입력</string>
+    <string name="pairing_uid_send">요청 보내기 💌</string>
+    <string name="pairing_qr_title">📷 QR 코드</string>
+    <string name="pairing_qr_desc">대면 스캔으로 바로 페어링~ 🤳</string>
+    <string name="pairing_qr_mine">내 QR 코드</string>
+    <string name="pairing_qr_scan">스캔</string>
+    <string name="pairing_success">페어링 성공! 이제부터 그 사람은 너의 사람이야 💕</string>
+    <string name="pairing_code_not_found">코드를 찾을 수 없어, 다시 확인해봐? 🤔</string>
+    <string name="pairing_code_invalid">코드는 6자리여야 해~ 🔢</string>
+    <string name="pairing_code_searching">코드를 찾고 있어~ ⏳</string>
+    <string name="pairing_code_gen_success">코드 생성 완료! 빨리 알려줘 💌</string>
+    <string name="pairing_code_gen_fail">생성 실패, 다시 시도해~ 😢</string>
+    <string name="pairing_error_network">페어링 실패, 네트워크 문제일 수도~ 다시 해봐 😢\n%s</string>
+    <string name="pairing_uid_success">요청 전송 완료~ 답변을 기다려 💌</string>
+    <string name="pairing_uid_not_found">사용자를 찾을 수 없어, ID 맞아? 🤔</string>
+    <string name="pairing_uid_fail">전송 실패~ 😢</string>
+    <string name="pairing_qr_wip">QR 코드 기능 개발 중~ 🔧</string>
+    <string name="pairing_scan_wip">스캔 기능 개발 중~ 🔧</string>
+
+    <string name="settings_title">설정 ⚙️</string>
+    <string name="settings_notif_privacy_title">🔔 알림 프라이버시</string>
+    <string name="settings_notif_privacy_desc">알림을 어디까지 보여줄까~</string>
+    <string name="settings_location_privacy_title">📍 위치 프라이버시</string>
+    <string name="settings_location_privacy_desc">위치를 어디까지 보여줄까~</string>
+    <string name="settings_privacy_app_only_notif">🟢 앱 이름만</string>
+    <string name="settings_privacy_summary_notif">🟡 간단한 요약</string>
+    <string name="settings_privacy_full_notif">🔴 전체 내용</string>
+    <string name="settings_privacy_city">🟢 도시 수준</string>
+    <string name="settings_privacy_district">🟡 구역 수준</string>
+    <string name="settings_privacy_exact">🔴 정확한 위치</string>
+    <string name="settings_allowed_apps_title">📱 허용 앱</string>
+    <string name="settings_allowed_apps_desc">어떤 앱의 알림을 보여줄까~ 비워두면 전부야</string>
+    <string name="settings_notif_permission_title">⚡ 알림 접근 권한</string>
+    <string name="settings_notif_permission_desc">알림 접근을 활성화해줘 💕</string>
+    <string name="settings_notif_permission_button">권한 활성화 ✨</string>
+    <string name="settings_language_title">🌐 언어 / Language</string>
+    <string name="settings_language_desc">원하는 언어를 선택해~</string>
+
+    <string name="notif_used_app">%s을(를) 사용했어~ 📱</string>
+    <string name="notif_got_message">%s에서 메시지가 왔어~ 💌</string>
+    <string name="location_channel_name">위치 동기화</string>
+    <string name="location_channel_desc">그 사람에게 네 위치를 알려주고 있어~ 💕</string>
+    <string name="location_notif_title">네 곁에 💕</string>
+    <string name="location_notif_text">네 위치를 지키고 있어~</string>
+
+    <string name="lang_zh">中文</string>
+    <string name="lang_en">English</string>
+    <string name="lang_fr">Français</string>
+    <string name="lang_ja">日本語</string>
+    <string name="lang_ko">한국어</string>
+</resources>

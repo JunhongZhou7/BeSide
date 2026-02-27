@@ -1,4 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">在你身边</string>
+
+    <!-- 导航 -->
+    <string name="nav_home">首页</string>
+    <string name="nav_timeline">ta的一天</string>
+    <string name="nav_pairing">配对</string>
+    <string name="nav_settings">设置</string>
+    <string name="top_bar_title">在你身边 💕</string>
+
+    <!-- 登录页 -->
+    <string name="auth_logo_text">在你身边</string>
+    <string name="auth_subtitle">BeSide</string>
+    <string name="auth_slogan">距离再远，心也在一起呢~ 🌸</string>
+    <string name="auth_login">登录</string>
+    <string name="auth_register">注册</string>
+    <string name="auth_nickname_hint">你的昵称~</string>
+    <string name="auth_email_hint">邮箱地址</string>
+    <string name="auth_password_hint">密码</string>
+    <string name="auth_login_button">登录 💕</string>
+    <string name="auth_register_button">注册 ✨</string>
+    <string name="auth_default_nickname">小可爱</string>
+    <string name="auth_error_no_user">找不到这个账号呢，要不注册一个？ 🤔</string>
+    <string name="auth_error_wrong_password">密码不对哦，再想想嘛~ 🔑</string>
+    <string name="auth_error_bad_email">邮箱格式不太对呢~ 📧</string>
+    <string name="auth_error_login_failed">登录失败了呢：%s 😢</string>
+    <string name="auth_error_email_taken">这个邮箱已经被注册啦，直接登录试试？ 💌</string>
+    <string name="auth_error_weak_password">密码太简单了呢，至少6位哦~ 🔐</string>
+    <string name="auth_error_register_failed">注册失败了呢：%s 😢</string>
+
+    <!-- 首页 -->
+    <string name="home_partner_time">ta那边现在 %s 呢~</string>
+    <string name="home_last_online">最后在线：%s 🌸</string>
+    <string name="home_events_summary">ta今天有 %d 条动态哦~ 去看看嘛 👀</string>
+    <string name="home_no_partner_title">还没有绑定ta呢~</string>
+    <string name="home_no_partner_desc">去「配对」页面找到你的那个人吧 💌</string>
+    <string name="home_relative_just_now">刚刚</string>
+    <string name="home_relative_minutes">%d 分钟前</string>
+    <string name="home_relative_hours">%d 小时前</string>
+    <string name="home_relative_days">%d 天前</string>
+
+    <!-- 时间线 -->
+    <string name="timeline_title">ta的一天 📖</string>
+    <string name="timeline_empty_title">ta今天还没有动态呢~</string>
+    <string name="timeline_empty_desc">也许ta还在睡觉吧，让ta多休息一会儿嘛 😴</string>
+
+    <!-- 配对 -->
+    <string name="pairing_title">找到你的ta 💝</string>
+    <string name="pairing_subtitle">选一种方式和ta绑定吧~</string>
+    <string name="pairing_code_title">📮 邀请码</string>
+    <string name="pairing_code_yours">你的邀请码是~</string>
+    <string name="pairing_code_share">把这个码告诉ta哦 💌</string>
+    <string name="pairing_code_generate">生成我的邀请码 ✨</string>
+    <string name="pairing_code_enter_hint">有ta的邀请码？在这里输入吧~</string>
+    <string name="pairing_code_input_label">输入6位邀请码</string>
+    <string name="pairing_code_bind">绑定ta 💕</string>
+    <string name="pairing_uid_title">🆔 用户ID</string>
+    <string name="pairing_uid_mine">你的ID: %s</string>
+    <string name="pairing_uid_input_label">输入ta的用户ID</string>
+    <string name="pairing_uid_send">发送配对请求 💌</string>
+    <string name="pairing_qr_title">📷 二维码</string>
+    <string name="pairing_qr_desc">面对面扫一扫，马上绑定呢~ 🤳</string>
+    <string name="pairing_qr_mine">我的二维码</string>
+    <string name="pairing_qr_scan">扫一扫</string>
+    <string name="pairing_success">绑定成功啦！从现在开始，ta就是你的人了 💕</string>
+    <string name="pairing_code_not_found">找不到这个邀请码呢，再确认一下嘛~ 🤔</string>
+    <string name="pairing_code_invalid">邀请码需要6位数字哦~ 🔢</string>
+    <string name="pairing_code_searching">正在查找ta的邀请码呢~ ⏳</string>
+    <string name="pairing_code_gen_success">邀请码生成成功啦~ 快告诉ta吧 💌</string>
+    <string name="pairing_code_gen_fail">生成失败了呢，再试一次嘛~ 😢</string>
+    <string name="pairing_error_network">配对失败了呢，网络可能不太好~ 再试一次嘛 😢\n%s</string>
+    <string name="pairing_uid_success">配对请求已发送~ 等ta同意就好啦 💌</string>
+    <string name="pairing_uid_not_found">找不到这个用户呢，ID对不对呀~ 🤔</string>
+    <string name="pairing_uid_fail">发送失败了呢~ 😢</string>
+    <string name="pairing_qr_wip">二维码功能正在开发中呢，再等一下嘛~ 🔧</string>
+    <string name="pairing_scan_wip">扫码功能正在开发中呢，再等一下嘛~ 🔧</string>
+
+    <!-- 设置 -->
+    <string name="settings_title">设置 ⚙️</string>
+    <string name="settings_notif_privacy_title">🔔 通知隐私</string>
+    <string name="settings_notif_privacy_desc">ta可以看到你的通知到什么程度呢~</string>
+    <string name="settings_location_privacy_title">📍 位置隐私</string>
+    <string name="settings_location_privacy_desc">ta可以知道你的位置到什么程度呢~</string>
+    <string name="settings_privacy_app_only_notif">🟢 仅app名称 — \"ta用了微信呢~\"</string>
+    <string name="settings_privacy_summary_notif">🟡 简要摘要 — \"ta收到了一条微信消息哦~\"</string>
+    <string name="settings_privacy_full_notif">🔴 完整内容 — ta可以看到所有细节</string>
+    <string name="settings_privacy_city">🟢 城市级别 — \"ta在上海呢~\"</string>
+    <string name="settings_privacy_district">🟡 区域级别 — \"ta在浦东新区哦~\"</string>
+    <string name="settings_privacy_exact">🔴 精确位置 — ta可以看到详细地址</string>
+    <string name="settings_allowed_apps_title">📱 允许读取的App</string>
+    <string name="settings_allowed_apps_desc">选择哪些app的通知可以被ta看到呢~ 不选的话就是全部哦</string>
+    <string name="settings_notif_permission_title">⚡ 通知读取权限</string>
+    <string name="settings_notif_permission_desc">需要开启「通知读取权限」才能让ta看到你的动态哦~ 去系统设置里找到「在你身边」然后打开通知读取就好啦 💕</string>
+    <string name="settings_notif_permission_button">去开启权限 ✨</string>
+    <string name="settings_language_title">🌐 语言 / Language</string>
+    <string name="settings_language_desc">选择你喜欢的语言~</string>
+
+    <!-- 通知服务 -->
+    <string name="notif_used_app">用了%s呢~ 📱</string>
+    <string name="notif_got_message">收到了一条%s的消息哦~ 💌</string>
+    <string name="location_channel_name">位置同步</string>
+    <string name="location_channel_desc">让ta知道你在哪里呢~ 💕</string>
+    <string name="location_notif_title">在你身边 💕</string>
+    <string name="location_notif_text">正在为ta守护你的位置呢~</string>
+
+    <!-- 语言名称 -->
+    <string name="lang_zh">中文</string>
+    <string name="lang_en">English</string>
+    <string name="lang_fr">Français</string>
+    <string name="lang_ja">日本語</string>
+    <string name="lang_ko">한국어</string>
 </resources>
