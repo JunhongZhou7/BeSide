@@ -2,12 +2,14 @@ package com.beside.app.util
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
-import android.os.Build
-import androidx.appcompat.app.AppCompatDelegate
-import androidx.core.os.LocaleListCompat
+import android.content.SharedPreferences
+import android.content.res.Configuration
+import java.util.Locale
 
 object LanguageHelper {
+
+    private const val PREF_NAME = "beside_language"
+    private const val KEY_LANG = "language_code"
 
     data class Language(
         val code: String,
@@ -22,24 +24,48 @@ object LanguageHelper {
         Language("ko", "한국어")
     )
 
+    private fun getPrefs(context: Context): SharedPreferences {
+        return context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+    }
+
     fun setLanguage(context: Context, languageCode: String) {
-        AppCompatDelegate.setApplicationLocales(
-            LocaleListCompat.forLanguageTags(languageCode)
-        )
-        // 重启 Activity 使语言生效
+        // 保存选择
+        getPrefs(context).edit().putString(KEY_LANG, languageCode).apply()
+
+        // 更新 locale
+        updateLocale(context, languageCode)
+
+        // 重启 Activity
         if (context is Activity) {
-            val intent = context.intent
-            context.finish()
-            context.startActivity(intent)
+            context.recreate()
         }
     }
 
     fun getCurrentLanguage(context: Context): String {
-        val locales = AppCompatDelegate.getApplicationLocales()
-        return if (!locales.isEmpty) {
-            locales[0]?.language ?: "zh"
-        } else {
-            java.util.Locale.getDefault().language
-        }
+        return getPrefs(context).getString(KEY_LANG, null)
+            ?: Locale.getDefault().language
+    }
+
+    fun updateLocale(context: Context, languageCode: String? = null) {
+        val code = languageCode ?: getCurrentLanguage(context)
+        val locale = Locale(code)
+        Locale.setDefault(locale)
+
+        val config = Configuration(context.resources.configuration)
+        config.setLocale(locale)
+        context.resources.updateConfiguration(config, context.resources.displayMetrics)
+    }
+
+    /**
+     * 在 Activity.attachBaseContext 中调用，确保语言生效
+     */
+    fun wrapContext(context: Context): Context {
+        val code = getPrefs(context).getString(KEY_LANG, null) ?: return context
+        val locale = Locale(code)
+        Locale.setDefault(locale)
+
+        val config = Configuration(context.resources.configuration)
+        config.setLocale(locale)
+        return context.createConfigurationContext(config)
     }
 }
