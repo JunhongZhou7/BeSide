@@ -4,16 +4,16 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.beside.app.R
 import com.beside.app.data.model.ActivityEvent
 import java.text.SimpleDateFormat
 import java.util.*
@@ -28,7 +28,7 @@ fun TimelineScreen(viewModel: TimelineViewModel = viewModel()) {
             .padding(16.dp)
     ) {
         Text(
-            text = "ta的一天 📖",
+            text = stringResource(R.string.timeline_title),
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = 16.dp)
@@ -37,12 +37,8 @@ fun TimelineScreen(viewModel: TimelineViewModel = viewModel()) {
         if (events.isEmpty()) {
             EmptyTimeline()
         } else {
-            LazyColumn(
-                verticalArrangement = Arrangement.spacedBy(12.dp)
-            ) {
-                items(events) { event ->
-                    EventCard(event)
-                }
+            LazyColumn(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                items(events) { event -> EventCard(event) }
             }
         }
     }
@@ -56,16 +52,10 @@ fun EventCard(event: ActivityEvent) {
     Card(
         modifier = Modifier.fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.surface
-        ),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surface),
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
     ) {
-        Row(
-            modifier = Modifier.padding(16.dp),
-            verticalAlignment = Alignment.Top
-        ) {
-            // 时间
+        Row(modifier = Modifier.padding(16.dp), verticalAlignment = Alignment.Top) {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.width(56.dp)
@@ -76,16 +66,9 @@ fun EventCard(event: ActivityEvent) {
                     color = MaterialTheme.colorScheme.primary,
                     fontWeight = FontWeight.Bold
                 )
-                Text(
-                    text = "•",
-                    color = MaterialTheme.colorScheme.primary,
-                    fontSize = 24.sp
-                )
+                Text(text = "•", color = MaterialTheme.colorScheme.primary, fontSize = 24.sp)
             }
-
             Spacer(modifier = Modifier.width(12.dp))
-
-            // 内容
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = event.appName,
@@ -114,21 +97,19 @@ fun EventCard(event: ActivityEvent) {
 @Composable
 fun EmptyTimeline() {
     Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(32.dp),
+        modifier = Modifier.fillMaxSize().padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
         Text(text = "🌙", fontSize = 64.sp)
         Spacer(modifier = Modifier.height(16.dp))
         Text(
-            text = "ta今天还没有动态呢~",
+            text = stringResource(R.string.timeline_empty_title),
             style = MaterialTheme.typography.titleMedium
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = "也许ta还在睡觉吧，让ta多休息一会儿嘛 😴",
+            text = stringResource(R.string.timeline_empty_desc),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )

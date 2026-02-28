@@ -9,6 +9,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
@@ -17,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.beside.app.R
 
 @Composable
 fun AuthScreen(
@@ -25,7 +27,6 @@ fun AuthScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    // 登录成功后跳转
     LaunchedEffect(uiState.isLoggedIn) {
         if (uiState.isLoggedIn) onAuthSuccess()
     }
@@ -37,17 +38,16 @@ fun AuthScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        // Logo
         Text(text = "💕", fontSize = 72.sp)
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = "在你身边",
+            text = stringResource(R.string.auth_logo_text),
             style = MaterialTheme.typography.headlineLarge,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary
         )
         Text(
-            text = "BeSide",
+            text = stringResource(R.string.auth_subtitle),
             style = MaterialTheme.typography.titleMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
@@ -55,14 +55,13 @@ fun AuthScreen(
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = "距离再远，心也在一起呢~ 🌸",
+            text = stringResource(R.string.auth_slogan),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
         Spacer(modifier = Modifier.height(40.dp))
 
-        // 切换登录/注册
         var isLogin by remember { mutableStateOf(true) }
 
         Card(
@@ -74,7 +73,6 @@ fun AuthScreen(
                 modifier = Modifier.padding(24.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                // Tab 切换
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceEvenly
@@ -87,7 +85,7 @@ fun AuthScreen(
                         )
                     ) {
                         Text(
-                            "登录",
+                            stringResource(R.string.auth_login),
                             fontWeight = if (isLogin) FontWeight.Bold else FontWeight.Normal,
                             fontSize = 16.sp
                         )
@@ -100,7 +98,7 @@ fun AuthScreen(
                         )
                     ) {
                         Text(
-                            "注册",
+                            stringResource(R.string.auth_register),
                             fontWeight = if (!isLogin) FontWeight.Bold else FontWeight.Normal,
                             fontSize = 16.sp
                         )
@@ -109,32 +107,26 @@ fun AuthScreen(
 
                 Spacer(modifier = Modifier.height(16.dp))
 
-                // 昵称（仅注册）
                 if (!isLogin) {
                     var nickname by remember { mutableStateOf("") }
                     OutlinedTextField(
                         value = nickname,
                         onValueChange = { nickname = it },
-                        label = { Text("你的昵称~") },
+                        label = { Text(stringResource(R.string.auth_nickname_hint)) },
                         leadingIcon = { Icon(Icons.Filled.Face, contentDescription = null) },
                         singleLine = true,
                         modifier = Modifier.fillMaxWidth(),
                         shape = RoundedCornerShape(12.dp)
                     )
                     Spacer(modifier = Modifier.height(12.dp))
-
-                    // 保存昵称供注册用
-                    LaunchedEffect(nickname) {
-                        viewModel.setNickname(nickname)
-                    }
+                    LaunchedEffect(nickname) { viewModel.setNickname(nickname) }
                 }
 
-                // 邮箱
                 var email by remember { mutableStateOf("") }
                 OutlinedTextField(
                     value = email,
                     onValueChange = { email = it },
-                    label = { Text("邮箱地址") },
+                    label = { Text(stringResource(R.string.auth_email_hint)) },
                     leadingIcon = { Icon(Icons.Filled.Email, contentDescription = null) },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
                     singleLine = true,
@@ -144,13 +136,12 @@ fun AuthScreen(
 
                 Spacer(modifier = Modifier.height(12.dp))
 
-                // 密码
                 var password by remember { mutableStateOf("") }
                 var passwordVisible by remember { mutableStateOf(false) }
                 OutlinedTextField(
                     value = password,
                     onValueChange = { password = it },
-                    label = { Text("密码") },
+                    label = { Text(stringResource(R.string.auth_password_hint)) },
                     leadingIcon = { Icon(Icons.Filled.Lock, contentDescription = null) },
                     trailingIcon = {
                         IconButton(onClick = { passwordVisible = !passwordVisible }) {
@@ -169,7 +160,6 @@ fun AuthScreen(
 
                 Spacer(modifier = Modifier.height(20.dp))
 
-                // 提交按钮
                 Button(
                     onClick = {
                         if (isLogin) viewModel.login(email, password)
@@ -188,13 +178,13 @@ fun AuthScreen(
                         )
                     } else {
                         Text(
-                            if (isLogin) "登录 💕" else "注册 ✨",
+                            if (isLogin) stringResource(R.string.auth_login_button)
+                            else stringResource(R.string.auth_register_button),
                             fontSize = 16.sp
                         )
                     }
                 }
 
-                // 错误提示
                 if (uiState.error.isNotEmpty()) {
                     Spacer(modifier = Modifier.height(12.dp))
                     Surface(

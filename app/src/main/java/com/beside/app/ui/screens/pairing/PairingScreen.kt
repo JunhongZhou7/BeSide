@@ -1,18 +1,22 @@
 package com.beside.app.ui.screens.pairing
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.beside.app.R
 
 @Composable
 fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
@@ -21,11 +25,12 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(24.dp),
+            .padding(24.dp)
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = "找到你的ta 💝",
+            text = stringResource(R.string.pairing_title),
             style = MaterialTheme.typography.headlineSmall,
             fontWeight = FontWeight.Bold
         )
@@ -33,12 +38,38 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
         Spacer(modifier = Modifier.height(8.dp))
 
         Text(
-            text = "选一种方式和ta绑定吧~",
+            text = stringResource(R.string.pairing_subtitle),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant
         )
 
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(24.dp))
+
+        // 状态提示（放在最上面，确保始终可见）
+        if (uiState.message.isNotEmpty()) {
+            Card(
+                colors = CardDefaults.cardColors(
+                    containerColor = if (uiState.isError)
+                        MaterialTheme.colorScheme.errorContainer
+                    else
+                        MaterialTheme.colorScheme.tertiaryContainer
+                ),
+                shape = RoundedCornerShape(12.dp),
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = uiState.message,
+                    modifier = Modifier.padding(16.dp).fillMaxWidth(),
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = if (uiState.isError)
+                        MaterialTheme.colorScheme.onErrorContainer
+                    else
+                        MaterialTheme.colorScheme.onTertiaryContainer
+                )
+            }
+            Spacer(modifier = Modifier.height(16.dp))
+        }
 
         // ===== 方式一：邀请码 =====
         Card(
@@ -50,7 +81,7 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "📮 邀请码",
+                    text = stringResource(R.string.pairing_code_title),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
@@ -59,7 +90,7 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
 
                 if (uiState.myCode.isNotEmpty()) {
                     Text(
-                        text = "你的邀请码是~",
+                        text = stringResource(R.string.pairing_code_yours),
                         style = MaterialTheme.typography.bodySmall
                     )
                     Text(
@@ -70,12 +101,12 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
                         letterSpacing = 4.sp
                     )
                     Text(
-                        text = "把这个码告诉ta哦 💌",
+                        text = stringResource(R.string.pairing_code_share),
                         style = MaterialTheme.typography.bodySmall
                     )
                 } else {
                     Button(onClick = { viewModel.generateCode() }) {
-                        Text("生成我的邀请码 ✨")
+                        Text(stringResource(R.string.pairing_code_generate))
                     }
                 }
 
@@ -86,7 +117,7 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
                 Spacer(modifier = Modifier.height(16.dp))
 
                 Text(
-                    text = "有ta的邀请码？在这里输入吧~",
+                    text = stringResource(R.string.pairing_code_enter_hint),
                     style = MaterialTheme.typography.bodySmall
                 )
 
@@ -96,7 +127,7 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
                 OutlinedTextField(
                     value = inputCode,
                     onValueChange = { if (it.length <= 6) inputCode = it },
-                    label = { Text("输入6位邀请码") },
+                    label = { Text(stringResource(R.string.pairing_code_input_label)) },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -105,9 +136,17 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
 
                 Button(
                     onClick = { viewModel.pairWithCode(inputCode) },
-                    enabled = inputCode.length == 6
+                    enabled = inputCode.length == 6 && !uiState.isLoading
                 ) {
-                    Text("绑定ta 💕")
+                    if (uiState.isLoading) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(20.dp),
+                            color = MaterialTheme.colorScheme.onPrimary,
+                            strokeWidth = 2.dp
+                        )
+                        Spacer(modifier = Modifier.width(8.dp))
+                    }
+                    Text(stringResource(R.string.pairing_code_bind))
                 }
             }
         }
@@ -124,7 +163,7 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "🆔 用户ID",
+                    text = stringResource(R.string.pairing_uid_title),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
@@ -132,7 +171,7 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
                 Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
-                    text = "你的ID: ${uiState.myUid}",
+                    text = stringResource(R.string.pairing_uid_mine, uiState.myUid),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
@@ -143,7 +182,7 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
                 OutlinedTextField(
                     value = inputUid,
                     onValueChange = { inputUid = it },
-                    label = { Text("输入ta的用户ID") },
+                    label = { Text(stringResource(R.string.pairing_uid_input_label)) },
                     singleLine = true,
                     modifier = Modifier.fillMaxWidth()
                 )
@@ -152,16 +191,16 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
 
                 Button(
                     onClick = { viewModel.pairWithUserId(inputUid) },
-                    enabled = inputUid.isNotBlank()
+                    enabled = inputUid.isNotBlank() && !uiState.isLoading
                 ) {
-                    Text("发送配对请求 💌")
+                    Text(stringResource(R.string.pairing_uid_send))
                 }
             }
         }
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        // ===== 方式三：二维码（占位） =====
+        // ===== 方式三：二维码 =====
         Card(
             modifier = Modifier.fillMaxWidth(),
             shape = RoundedCornerShape(16.dp)
@@ -171,13 +210,13 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "📷 二维码",
+                    text = stringResource(R.string.pairing_qr_title),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = "面对面扫一扫，马上绑定呢~ 🤳",
+                    text = stringResource(R.string.pairing_qr_desc),
                     style = MaterialTheme.typography.bodyMedium
                 )
                 Spacer(modifier = Modifier.height(12.dp))
@@ -185,36 +224,17 @@ fun PairingScreen(viewModel: PairingViewModel = viewModel()) {
                     OutlinedButton(onClick = { viewModel.showMyQR() }) {
                         Icon(Icons.Filled.QrCode, contentDescription = null, modifier = Modifier.size(18.dp))
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("我的二维码")
+                        Text(stringResource(R.string.pairing_qr_mine))
                     }
                     Button(onClick = { viewModel.scanQR() }) {
                         Icon(Icons.Filled.QrCodeScanner, contentDescription = null, modifier = Modifier.size(18.dp))
                         Spacer(modifier = Modifier.width(4.dp))
-                        Text("扫一扫")
+                        Text(stringResource(R.string.pairing_qr_scan))
                     }
                 }
             }
         }
 
-        // 状态提示
-        if (uiState.message.isNotEmpty()) {
-            Spacer(modifier = Modifier.height(16.dp))
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = if (uiState.isError)
-                        MaterialTheme.colorScheme.errorContainer
-                    else
-                        MaterialTheme.colorScheme.tertiaryContainer
-                ),
-                shape = RoundedCornerShape(12.dp)
-            ) {
-                Text(
-                    text = uiState.message,
-                    modifier = Modifier.padding(16.dp),
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.bodyMedium
-                )
-            }
-        }
+        Spacer(modifier = Modifier.height(32.dp))
     }
 }

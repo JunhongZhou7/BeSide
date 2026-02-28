@@ -6,10 +6,12 @@ import androidx.compose.material.icons.filled.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.beside.app.R
 import com.beside.app.ui.screens.auth.AuthScreen
 import com.beside.app.ui.screens.home.HomeScreen
 import com.beside.app.ui.screens.pairing.PairingScreen
@@ -17,12 +19,12 @@ import com.beside.app.ui.screens.settings.SettingsScreen
 import com.beside.app.ui.screens.timeline.TimelineScreen
 import com.google.firebase.auth.FirebaseAuth
 
-sealed class Screen(val route: String, val title: String) {
-    object Auth : Screen("auth", "登录")
-    object Home : Screen("home", "首页")
-    object Timeline : Screen("timeline", "ta的一天")
-    object Pairing : Screen("pairing", "配对")
-    object Settings : Screen("settings", "设置")
+sealed class Screen(val route: String) {
+    object Auth : Screen("auth")
+    object Home : Screen("home")
+    object Timeline : Screen("timeline")
+    object Pairing : Screen("pairing")
+    object Settings : Screen("settings")
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,7 +43,7 @@ fun BeSideNavHost() {
         topBar = {
             if (showBars) {
                 TopAppBar(
-                    title = { Text("在你身边 💕") },
+                    title = { Text(stringResource(R.string.top_bar_title)) },
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.primaryContainer
                     )
@@ -55,25 +57,25 @@ fun BeSideNavHost() {
                         selected = currentRoute == Screen.Home.route,
                         onClick = { navController.navigate(Screen.Home.route) { launchSingleTop = true } },
                         icon = { Icon(Icons.Filled.Home, contentDescription = null) },
-                        label = { Text("首页") }
+                        label = { Text(stringResource(R.string.nav_home)) }
                     )
                     NavigationBarItem(
                         selected = currentRoute == Screen.Timeline.route,
                         onClick = { navController.navigate(Screen.Timeline.route) { launchSingleTop = true } },
                         icon = { Icon(Icons.Filled.Timeline, contentDescription = null) },
-                        label = { Text("ta的一天") }
+                        label = { Text(stringResource(R.string.nav_timeline)) }
                     )
                     NavigationBarItem(
                         selected = currentRoute == Screen.Pairing.route,
                         onClick = { navController.navigate(Screen.Pairing.route) { launchSingleTop = true } },
                         icon = { Icon(Icons.Filled.Favorite, contentDescription = null) },
-                        label = { Text("配对") }
+                        label = { Text(stringResource(R.string.nav_pairing)) }
                     )
                     NavigationBarItem(
                         selected = currentRoute == Screen.Settings.route,
                         onClick = { navController.navigate(Screen.Settings.route) { launchSingleTop = true } },
                         icon = { Icon(Icons.Filled.Settings, contentDescription = null) },
-                        label = { Text("设置") }
+                        label = { Text(stringResource(R.string.nav_settings)) }
                     )
                 }
             }
